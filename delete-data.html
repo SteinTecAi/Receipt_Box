@@ -1,0 +1,646 @@
+<!doctype html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="index, follow">
+    <meta name="description" content="Data deletion request — Receipt Box Android app">
+    <title>Data Deletion · Receipt Box</title>
+    <style>
+        :root {
+            --bg: #faf7f2;
+            --surface: #ffffff;
+            --primary: #0f766e;
+            --primary-hover: #115e59;
+            --text: #1c1917;
+            --muted: #57534e;
+            --border: #d6d3d1;
+            --accent-bg: #ccfbf1;
+            --warn-bg: #fef3c7;
+            --warn-text: #92400e;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                "Helvetica Neue", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--bg);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        header {
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .container {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 24px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .brand-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--primary);
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
+        }
+
+        .lang-toggle {
+            display: inline-flex;
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            overflow: hidden;
+            background: var(--surface);
+        }
+
+        .lang-toggle button {
+            background: none;
+            border: none;
+            padding: 6px 14px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--muted);
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        .lang-toggle button.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        main { padding: 40px 0 80px; }
+
+        h1 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            line-height: 1.2;
+        }
+
+        .subtitle {
+            color: var(--muted);
+            font-size: 14px;
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            font-size: 22px;
+            font-weight: 600;
+            margin: 32px 0 12px;
+            line-height: 1.3;
+        }
+
+        p { margin: 0 0 14px; }
+
+        ol, ul {
+            margin: 0 0 16px;
+            padding-left: 24px;
+        }
+
+        ol li, ul li { margin-bottom: 8px; }
+
+        a {
+            color: var(--primary);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+        a:hover { color: var(--primary-hover); }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+            font-size: 14px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 12px 14px;
+            border-bottom: 1px solid var(--border);
+            vertical-align: top;
+        }
+        tbody tr:last-child td { border-bottom: none; }
+
+        th {
+            background: var(--accent-bg);
+            font-weight: 600;
+        }
+
+        .step-box {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin: 16px 0;
+        }
+        .step-box h3 {
+            color: var(--primary);
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .step-num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .info-box {
+            background: var(--accent-bg);
+            border-left: 4px solid var(--primary);
+            padding: 14px 18px;
+            border-radius: 6px;
+            margin: 20px 0;
+        }
+        .info-box p:last-child { margin-bottom: 0; }
+
+        .lang-section { display: none; }
+        .lang-section.active { display: block; }
+
+        .placeholder {
+            background: var(--warn-bg);
+            color: var(--warn-text);
+            padding: 0 4px;
+            border-radius: 3px;
+            font-style: italic;
+        }
+
+        footer {
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+            padding: 24px 0;
+            text-align: center;
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        @media (max-width: 480px) {
+            h1 { font-size: 26px; }
+            h2 { font-size: 19px; }
+            .container { padding: 0 16px; }
+            header .container { padding: 12px 16px; }
+            .brand { font-size: 16px; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <a href="privacy.html" class="brand">
+            <span class="brand-icon">✓</span>
+            <span>Receipt Box</span>
+        </a>
+        <div class="lang-toggle" role="tablist" aria-label="Language">
+            <button class="active" data-lang="de" aria-selected="true">Deutsch</button>
+            <button data-lang="en">English</button>
+        </div>
+    </div>
+</header>
+
+<main>
+    <div class="container">
+
+        <!-- ============================================================
+             DEUTSCH
+             ============================================================ -->
+        <section class="lang-section active" data-lang="de">
+            <h1>Daten löschen</h1>
+            <p class="subtitle">
+                Receipt Box · App von <span class="placeholder">[VOLLER NAME / SteinTecDev]</span>
+            </p>
+
+            <p>
+                Receipt Box ist eine <strong>Privacy-by-Design</strong>-App: Alle deine
+                Belege, Bilder, Fahrten und Einstellungen werden <strong>ausschließlich
+                lokal auf deinem Gerät</strong> gespeichert. Es gibt keinen zentralen
+                Server, auf dem deine Daten liegen.
+            </p>
+
+            <div class="info-box">
+                <p>
+                    <strong>Kurzfassung:</strong> Möchtest du alle deine Receipt-Box-Daten
+                    löschen? Deinstalliere einfach die App. Damit ist die Datenbank, alle
+                    Belegfotos und alle Einstellungen unwiderruflich entfernt.
+                </p>
+            </div>
+
+            <h2>Schritt-für-Schritt-Anleitung</h2>
+
+            <div class="step-box">
+                <h3><span class="step-num">1</span> Lokale App-Daten löschen</h3>
+                <p>
+                    <strong>Variante A — App deinstallieren (empfohlen, einfachster Weg):</strong>
+                </p>
+                <ol>
+                    <li>Lange auf das Receipt-Box-Icon im Launcher tippen</li>
+                    <li>„Deinstallieren" auswählen</li>
+                    <li>Bestätigen</li>
+                </ol>
+                <p>
+                    Android entfernt damit <strong>alle</strong> App-Daten:
+                    Datenbank, Belegfotos, PDF-Cache, Einstellungen, Cache, Backup-ZIPs
+                    im internen Speicher.
+                </p>
+                <p>
+                    <strong>Variante B — App-Daten zurücksetzen ohne Deinstallation:</strong>
+                </p>
+                <ol>
+                    <li>Android-Einstellungen → Apps → Receipt Box → Speicher</li>
+                    <li>„Daten löschen" antippen → bestätigen</li>
+                </ol>
+                <p>
+                    Die App bleibt installiert, aber alle Inhalte sind weg —
+                    sie startet wieder mit dem Onboarding wie bei Erstinstallation.
+                </p>
+            </div>
+
+            <div class="step-box">
+                <h3><span class="step-num">2</span> Werbe-Einwilligung &amp; Werbe-ID widerrufen</h3>
+                <p>
+                    <strong>In-App (vor der Deinstallation):</strong>
+                </p>
+                <ol>
+                    <li>Receipt Box öffnen</li>
+                    <li>Einstellungen → „Werbe-Einwilligung verwalten"</li>
+                    <li>Ablehnen oder Einwilligungen widerrufen</li>
+                </ol>
+                <p>
+                    <strong>System-weit (Werbe-ID zurücksetzen oder löschen):</strong>
+                </p>
+                <ol>
+                    <li>Android-Einstellungen → Datenschutz → Anzeigen</li>
+                    <li>„Werbe-ID zurücksetzen" oder „Werbe-ID löschen"</li>
+                </ol>
+                <p>
+                    Damit verlierst du die Verknüpfung zwischen deinem Gerät und allen
+                    bisherigen Werbe-Daten bei Google AdMob.
+                </p>
+            </div>
+
+            <div class="step-box">
+                <h3><span class="step-num">3</span> Premium-Subscription kündigen (falls aktiv)</h3>
+                <ol>
+                    <li>Google Play Store öffnen</li>
+                    <li>Profil-Icon → Zahlungen und Abos → Abos</li>
+                    <li>„Receipt Box Premium" auswählen → kündigen</li>
+                </ol>
+                <p>
+                    Aktive Lifetime-Käufe bleiben mit deinem Google-Konto verknüpft
+                    (Standard-Verhalten von Google Play). Bei Bedarf kannst du beim
+                    Google-Support eine Konto-Daten-Löschung anfordern unter
+                    <a href="https://support.google.com/googleplay" target="_blank" rel="noopener">support.google.com/googleplay</a>.
+                </p>
+            </div>
+
+            <div class="step-box">
+                <h3><span class="step-num">4</span> Optional: Auto-Backup-ZIPs in der Cloud löschen</h3>
+                <p>
+                    Falls du in den Einstellungen Auto-Backup aktiviert hattest und die
+                    App ZIP-Dateien in einem von dir gewählten Cloud-Ordner abgelegt hat
+                    (z. B. Google Drive, OneDrive, Dropbox):
+                </p>
+                <ol>
+                    <li>Den jeweiligen Cloud-Anbieter öffnen</li>
+                    <li>Den Ordner suchen, den du beim Auto-Backup-Setup gewählt hast</li>
+                    <li>ZIP-Dateien mit Namen <code>ReceiptBox_Backup_*.zip</code> manuell löschen</li>
+                </ol>
+                <p>
+                    Receipt Box hat <strong>keinen Zugriff</strong> auf deinen
+                    Cloud-Speicher und kann diese Files nicht remote löschen — du musst es
+                    selbst tun.
+                </p>
+            </div>
+
+            <h2>Was wird wann gelöscht?</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Datentyp</th>
+                        <th>Speicher-Ort</th>
+                        <th>Wird gelöscht durch</th>
+                        <th>Aufbewahrung</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Belege, Bilder, Bücher, Fahrten</td>
+                        <td>Gerät (lokal)</td>
+                        <td>Schritt 1 (Deinstallation oder „Daten löschen")</td>
+                        <td>Sofort, keine Aufbewahrung</td>
+                    </tr>
+                    <tr>
+                        <td>App-Einstellungen, Land-Profil, Filter</td>
+                        <td>Gerät (lokal)</td>
+                        <td>Schritt 1</td>
+                        <td>Sofort, keine Aufbewahrung</td>
+                    </tr>
+                    <tr>
+                        <td>Werbe-ID, Werbe-Telemetrie</td>
+                        <td>Google AdMob</td>
+                        <td>Schritt 2</td>
+                        <td>Bis zu 14 Monate gemäß Google-Werbe-Richtlinien</td>
+                    </tr>
+                    <tr>
+                        <td>Subscription-Status, Kauf-Historie</td>
+                        <td>Google Play</td>
+                        <td>Schritt 3 (+ Google-Support für vollständige Löschung)</td>
+                        <td>Bis zu 10 Jahre für steuerrechtliche Aufbewahrung (Google-Standard)</td>
+                    </tr>
+                    <tr>
+                        <td>Auto-Backup-ZIPs</td>
+                        <td>Cloud-Speicher (User-gewählt)</td>
+                        <td>Schritt 4 (manuell beim Cloud-Anbieter)</td>
+                        <td>Bis du sie löschst</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>Was wird nicht von uns gelöscht?</h2>
+            <p>
+                Receipt Box selbst (der Entwickler) hat <strong>zu keinem Zeitpunkt
+                Zugriff</strong> auf deine App-Daten. Wir betreiben keinen Server, keine
+                Datenbank, keine Cloud-Speicherung. Daher gibt es bei uns
+                <strong>nichts</strong>, das wir „auf Anfrage löschen" könnten — alles
+                liegt bei dir lokal oder bei Google (AdMob, Play Billing) als deren
+                Dienstleister.
+            </p>
+            <p>
+                Wenn du Daten bei Google löschen möchtest, wende dich an Google direkt:
+                <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a>.
+            </p>
+
+            <h2>Kontakt</h2>
+            <p>
+                Bei Fragen zur Daten-Löschung:
+                <a href="mailto:placeholder@example.com"><span class="placeholder">[KONTAKT-E-MAIL]</span></a>
+            </p>
+            <p>
+                <a href="privacy.html">→ Vollständige Datenschutzerklärung</a>
+            </p>
+        </section>
+
+        <!-- ============================================================
+             ENGLISH
+             ============================================================ -->
+        <section class="lang-section" data-lang="en">
+            <h1>Delete Your Data</h1>
+            <p class="subtitle">
+                Receipt Box · App by <span class="placeholder">[FULL NAME / SteinTecDev]</span>
+            </p>
+
+            <p>
+                Receipt Box is a <strong>Privacy-by-Design</strong> app: all your receipts,
+                images, trips and settings are stored <strong>exclusively on your device</strong>.
+                There is no central server holding your data.
+            </p>
+
+            <div class="info-box">
+                <p>
+                    <strong>Short version:</strong> Want to delete all your Receipt Box
+                    data? Just uninstall the app. The database, all receipt photos, and
+                    all settings are permanently removed.
+                </p>
+            </div>
+
+            <h2>Step-by-step instructions</h2>
+
+            <div class="step-box">
+                <h3><span class="step-num">1</span> Delete local app data</h3>
+                <p>
+                    <strong>Option A — uninstall (recommended, easiest):</strong>
+                </p>
+                <ol>
+                    <li>Long-press the Receipt Box icon in your launcher</li>
+                    <li>Select "Uninstall"</li>
+                    <li>Confirm</li>
+                </ol>
+                <p>
+                    Android removes <strong>all</strong> app data: database, receipt
+                    images, PDF cache, settings, cache, backup ZIPs in internal storage.
+                </p>
+                <p>
+                    <strong>Option B — clear app data without uninstalling:</strong>
+                </p>
+                <ol>
+                    <li>Android Settings → Apps → Receipt Box → Storage</li>
+                    <li>Tap "Clear data" → confirm</li>
+                </ol>
+                <p>
+                    The app stays installed but all content is gone — it starts again
+                    with the onboarding flow as on first install.
+                </p>
+            </div>
+
+            <div class="step-box">
+                <h3><span class="step-num">2</span> Revoke ad consent &amp; reset advertising ID</h3>
+                <p>
+                    <strong>In-app (before uninstalling):</strong>
+                </p>
+                <ol>
+                    <li>Open Receipt Box</li>
+                    <li>Settings → "Manage ad consent"</li>
+                    <li>Decline or revoke consent</li>
+                </ol>
+                <p>
+                    <strong>System-wide (reset or delete advertising ID):</strong>
+                </p>
+                <ol>
+                    <li>Android Settings → Privacy → Ads</li>
+                    <li>"Reset advertising ID" or "Delete advertising ID"</li>
+                </ol>
+                <p>
+                    This breaks the link between your device and any prior ad data with
+                    Google AdMob.
+                </p>
+            </div>
+
+            <div class="step-box">
+                <h3><span class="step-num">3</span> Cancel Premium subscription (if active)</h3>
+                <ol>
+                    <li>Open Google Play Store</li>
+                    <li>Profile icon → Payments &amp; subscriptions → Subscriptions</li>
+                    <li>Select "Receipt Box Premium" → cancel</li>
+                </ol>
+                <p>
+                    Active Lifetime purchases remain linked to your Google account
+                    (standard Google Play behavior). For full account-data deletion at
+                    Google, contact Google Support at
+                    <a href="https://support.google.com/googleplay" target="_blank" rel="noopener">support.google.com/googleplay</a>.
+                </p>
+            </div>
+
+            <div class="step-box">
+                <h3><span class="step-num">4</span> Optional: delete auto-backup ZIPs in the cloud</h3>
+                <p>
+                    If you enabled auto-backup in Settings and the app stored ZIP files
+                    in a cloud folder you chose (e.g. Google Drive, OneDrive, Dropbox):
+                </p>
+                <ol>
+                    <li>Open the respective cloud provider</li>
+                    <li>Find the folder you picked during auto-backup setup</li>
+                    <li>Manually delete files named <code>ReceiptBox_Backup_*.zip</code></li>
+                </ol>
+                <p>
+                    Receipt Box has <strong>no access</strong> to your cloud storage and
+                    cannot delete these files remotely — you must do it yourself.
+                </p>
+            </div>
+
+            <h2>What gets deleted, when?</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Data type</th>
+                        <th>Storage location</th>
+                        <th>Deleted by</th>
+                        <th>Retention</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Receipts, images, ledgers, trips</td>
+                        <td>Device (local)</td>
+                        <td>Step 1 (uninstall or "Clear data")</td>
+                        <td>Immediate, no retention</td>
+                    </tr>
+                    <tr>
+                        <td>App settings, country profile, filters</td>
+                        <td>Device (local)</td>
+                        <td>Step 1</td>
+                        <td>Immediate, no retention</td>
+                    </tr>
+                    <tr>
+                        <td>Advertising ID, ad telemetry</td>
+                        <td>Google AdMob</td>
+                        <td>Step 2</td>
+                        <td>Up to 14 months per Google Ads policy</td>
+                    </tr>
+                    <tr>
+                        <td>Subscription status, purchase history</td>
+                        <td>Google Play</td>
+                        <td>Step 3 (+ Google Support for full deletion)</td>
+                        <td>Up to 10 years for tax-law retention (Google standard)</td>
+                    </tr>
+                    <tr>
+                        <td>Auto-backup ZIPs</td>
+                        <td>Cloud storage (user-chosen)</td>
+                        <td>Step 4 (manual at cloud provider)</td>
+                        <td>Until you delete them</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>What we cannot delete</h2>
+            <p>
+                Receipt Box (the developer) has <strong>no access</strong> to your app
+                data at any time. We operate no servers, no databases, no cloud storage.
+                Therefore there is <strong>nothing on our side</strong> we could "delete
+                upon request" — everything is on your device or with Google (AdMob, Play
+                Billing) as their service provider.
+            </p>
+            <p>
+                For data deletion requests at Google directly:
+                <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a>.
+            </p>
+
+            <h2>Contact</h2>
+            <p>
+                For questions about data deletion:
+                <a href="mailto:placeholder@example.com"><span class="placeholder">[CONTACT EMAIL]</span></a>
+            </p>
+            <p>
+                <a href="privacy.html">→ Full Privacy Policy</a>
+            </p>
+        </section>
+
+    </div>
+</main>
+
+<footer>
+    <div class="container">
+        © Receipt Box · <a href="privacy.html">Privacy Policy</a>
+    </div>
+</footer>
+
+<script>
+    const buttons = document.querySelectorAll('.lang-toggle button');
+    const sections = document.querySelectorAll('.lang-section');
+
+    function setLang(lang) {
+        buttons.forEach(b => {
+            const active = b.dataset.lang === lang;
+            b.classList.toggle('active', active);
+            b.setAttribute('aria-selected', active);
+        });
+        sections.forEach(s => {
+            s.classList.toggle('active', s.dataset.lang === lang);
+        });
+        document.documentElement.lang = lang;
+        try {
+            localStorage.setItem('receiptbox-privacy-lang', lang);
+        } catch (e) { }
+    }
+
+    buttons.forEach(b => {
+        b.addEventListener('click', () => setLang(b.dataset.lang));
+    });
+
+    const stored = (() => {
+        try { return localStorage.getItem('receiptbox-privacy-lang'); }
+        catch (e) { return null; }
+    })();
+    const browserLang = (navigator.language || 'de').slice(0, 2);
+    const initial = stored || (browserLang === 'en' ? 'en' : 'de');
+    setLang(initial);
+</script>
+
+</body>
+</html>
