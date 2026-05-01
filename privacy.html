@@ -1,0 +1,680 @@
+<!doctype html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="index, follow">
+    <meta name="description" content="Privacy Policy / Datenschutzerklärung — Receipt Box Android app">
+    <title>Privacy Policy · Receipt Box</title>
+    <style>
+        :root {
+            --bg: #faf7f2;
+            --surface: #ffffff;
+            --primary: #0f766e;
+            --primary-hover: #115e59;
+            --text: #1c1917;
+            --muted: #57534e;
+            --border: #d6d3d1;
+            --accent-bg: #ccfbf1;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                "Helvetica Neue", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--bg);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        header {
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .container {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 24px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .brand-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--primary);
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
+        }
+
+        .lang-toggle {
+            display: inline-flex;
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            overflow: hidden;
+            background: var(--surface);
+        }
+
+        .lang-toggle button {
+            background: none;
+            border: none;
+            padding: 6px 14px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--muted);
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        .lang-toggle button.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        main {
+            padding: 40px 0 80px;
+        }
+
+        h1 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            line-height: 1.2;
+        }
+
+        .subtitle {
+            color: var(--muted);
+            font-size: 14px;
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            font-size: 22px;
+            font-weight: 600;
+            margin: 32px 0 12px;
+            line-height: 1.3;
+        }
+
+        h3 {
+            font-size: 16px;
+            font-weight: 600;
+            margin: 20px 0 8px;
+            color: var(--muted);
+        }
+
+        p { margin: 0 0 14px; }
+
+        ul, ol {
+            margin: 0 0 16px;
+            padding-left: 24px;
+        }
+
+        li { margin-bottom: 6px; }
+
+        a {
+            color: var(--primary);
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+            text-underline-offset: 3px;
+        }
+        a:hover { color: var(--primary-hover); }
+
+        code {
+            background: var(--accent-bg);
+            color: var(--primary-hover);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 14px;
+            font-family: ui-monospace, "SF Mono", Menlo, monospace;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+            font-size: 14px;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 10px 12px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        th {
+            background: var(--accent-bg);
+            font-weight: 600;
+        }
+
+        .lang-section { display: none; }
+        .lang-section.active { display: block; }
+
+        .toc {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin: 24px 0;
+        }
+        .toc h3 {
+            margin-top: 0;
+            color: var(--text);
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .toc ol { margin-bottom: 0; padding-left: 20px; }
+        .toc li { margin-bottom: 4px; font-size: 14px; }
+
+        footer {
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+            padding: 24px 0;
+            text-align: center;
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .placeholder {
+            background: #fef3c7;
+            color: #92400e;
+            padding: 0 4px;
+            border-radius: 3px;
+            font-style: italic;
+        }
+
+        @media (max-width: 480px) {
+            h1 { font-size: 26px; }
+            h2 { font-size: 19px; }
+            .container { padding: 0 16px; }
+            header .container { padding: 12px 16px; }
+            .brand { font-size: 16px; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <a href="#" class="brand">
+            <span class="brand-icon">✓</span>
+            <span>Receipt Box</span>
+        </a>
+        <div class="lang-toggle" role="tablist" aria-label="Language">
+            <button class="active" data-lang="de" aria-selected="true">Deutsch</button>
+            <button data-lang="en">English</button>
+        </div>
+    </div>
+</header>
+
+<main>
+    <div class="container">
+
+        <!-- ============================================================
+             DEUTSCH
+             ============================================================ -->
+        <section class="lang-section active" data-lang="de">
+            <h1>Datenschutzerklärung</h1>
+            <p class="subtitle">Receipt Box · Stand: <span class="placeholder">[DATUM EINSETZEN]</span></p>
+
+            <div class="toc">
+                <h3>Inhalt</h3>
+                <ol>
+                    <li><a href="#de-1">Verantwortlicher</a></li>
+                    <li><a href="#de-2">Allgemeine Grundsätze</a></li>
+                    <li><a href="#de-3">Lokal verarbeitete Daten</a></li>
+                    <li><a href="#de-4">Texterkennung (OCR)</a></li>
+                    <li><a href="#de-5">Werbung &amp; Einwilligung</a></li>
+                    <li><a href="#de-6">In-App-Käufe</a></li>
+                    <li><a href="#de-7">Auto-Backup</a></li>
+                    <li><a href="#de-8">Berechtigungen</a></li>
+                    <li><a href="#de-9">Deine Rechte</a></li>
+                    <li><a href="#de-10">Änderungen</a></li>
+                    <li><a href="#de-11">Kontakt</a></li>
+                </ol>
+            </div>
+
+            <h2 id="de-1">1. Verantwortlicher im Sinne der DSGVO</h2>
+            <p>
+                <span class="placeholder">[VOLLER NAME]</span><br>
+                <span class="placeholder">[STRASSE + HAUSNUMMER]</span><br>
+                <span class="placeholder">[PLZ + ORT]</span><br>
+                Deutschland
+            </p>
+            <p>
+                E-Mail: <a href="mailto:placeholder@example.com"><span class="placeholder">[KONTAKT-E-MAIL]</span></a>
+            </p>
+
+            <h2 id="de-2">2. Allgemeine Grundsätze</h2>
+            <p>
+                Diese Datenschutzerklärung informiert dich über Art, Umfang und Zweck der
+                Verarbeitung personenbezogener Daten innerhalb der Android-App
+                <strong>„Receipt Box"</strong> („App"). Receipt Box wurde mit dem Grundsatz
+                <strong>„Privacy by Design"</strong> entwickelt: Der Großteil deiner Daten
+                verlässt niemals dein Gerät.
+            </p>
+            <p>
+                Die Verarbeitung erfolgt unter Beachtung der EU-Datenschutz-Grundverordnung
+                (DSGVO) und des Bundesdatenschutzgesetzes (BDSG).
+            </p>
+
+            <h2 id="de-3">3. Welche Daten verarbeitet die App lokal?</h2>
+            <p>
+                Folgende Daten speichert die App <strong>ausschließlich lokal auf deinem Gerät</strong>
+                (in der App-eigenen Datenbank und im internen Speicher):
+            </p>
+            <ul>
+                <li><strong>Beleg-Daten:</strong> Händler, Datum, Betrag, MwSt-Satz, Kategorie, Notizen, Bewirtungsanlass, Teilnehmer</li>
+                <li><strong>Beleg-Bilder:</strong> Fotos und PDFs deiner gescannten Belege</li>
+                <li><strong>Buchführungs-Daten:</strong> angelegte Bücher (Privat, Firma, Projekte)</li>
+                <li><strong>Fahrten-Daten:</strong> Start, Ziel, Kilometer, Anlass, Verpflegungspauschalen</li>
+                <li><strong>Einstellungen:</strong> Land/Steuer-Profil, App-Sperre-Status, Auto-Backup-Pfad, Erinnerungs-Einstellungen, Onboarding-Status</li>
+            </ul>
+            <p>
+                Diese Daten werden <strong>nicht an uns oder Dritte übermittelt</strong>, solange du nicht
+                selbst aktiv exportierst, teilst oder ein Backup in einen Cloud-Ordner ablegst.
+            </p>
+            <p>
+                <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung)
+                und Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse).
+            </p>
+            <p>
+                <strong>Speicherdauer:</strong> Solange die App installiert ist oder du Daten manuell
+                löschst. Beim Deinstallieren werden alle lokalen Daten unwiderruflich entfernt.
+            </p>
+
+            <h2 id="de-4">4. Texterkennung (OCR) auf dem Gerät</h2>
+            <p>
+                Beim Scannen eines Belegs läuft die optische Zeichenerkennung über
+                <strong>Google ML Kit Text Recognition</strong> und <strong>Google ML Kit
+                Document Scanner</strong> <strong>komplett offline</strong> auf deinem Gerät.
+                Die Beleg-Bilder verlassen dein Gerät dabei nicht.
+            </p>
+            <p>
+                Weitere Informationen:
+                <a href="https://developers.google.com/ml-kit/terms" target="_blank" rel="noopener">developers.google.com/ml-kit/terms</a>
+            </p>
+
+            <h2 id="de-5">5. Werbung und Einwilligungs-Banner</h2>
+            <p>
+                Receipt Box finanziert sich in der kostenlosen Variante über Werbung von
+                <strong>Google AdMob</strong> (Anbieter: Google Ireland Limited, Gordon House,
+                Barrow Street, Dublin 4, Irland).
+            </p>
+
+            <h3>5.1 Was wird übermittelt?</h3>
+            <p>
+                Wenn du der personalisierten Werbung <strong>zustimmst</strong>, übermittelt
+                Google AdMob:
+            </p>
+            <ul>
+                <li>Werbe-ID des Geräts („Advertising ID")</li>
+                <li>IP-Adresse (gekürzt verarbeitet)</li>
+                <li>Geräte- und Betriebssystem-Informationen</li>
+                <li>Ungefähre Standortinformation (auf Basis der IP, nicht GPS)</li>
+                <li>App-Nutzungsdaten in aggregierter Form</li>
+            </ul>
+            <p>
+                Wenn du <strong>nicht zustimmst</strong>, werden <strong>nicht-personalisierte
+                Werbeanzeigen</strong> ausgeliefert.
+            </p>
+
+            <h3>5.2 DSGVO-Einwilligung</h3>
+            <p>
+                Beim ersten App-Start zeigt Receipt Box dir ein Einwilligungs-Banner des
+                Google User Messaging Platform SDK. Du kannst deine Einwilligung jederzeit
+                unter <em>„Einstellungen → Werbe-Einwilligung verwalten"</em> widerrufen oder
+                anpassen.
+            </p>
+            <p>
+                <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. a DSGVO (Einwilligung).
+            </p>
+
+            <h3>5.3 Datenübermittlung in Drittländer</h3>
+            <p>
+                Google überträgt Daten in die USA. Die Übermittlung beruht auf den
+                EU-Standardvertragsklauseln (Art. 46 DSGVO) sowie dem EU-US Data Privacy
+                Framework. Weitere Informationen:
+                <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a>
+            </p>
+
+            <h2 id="de-6">6. In-App-Käufe (Premium / Lifetime)</h2>
+            <p>
+                Käufe innerhalb der App werden über <strong>Google Play Billing</strong>
+                abgewickelt. Anbieter: Google Ireland Limited.
+            </p>
+            <ul>
+                <li>Die Zahlungsabwicklung erfolgt vollständig durch Google.</li>
+                <li>Wir erhalten von Google <strong>lediglich die Information, ob ein Kauf
+                    erfolgt ist</strong> — keine Bezahldaten.</li>
+                <li>Aktive Käufe werden lokal auf deinem Gerät gespeichert. Bei Geräte-Wechsel
+                    werden sie automatisch über dein Google-Konto wiederhergestellt.</li>
+            </ul>
+            <p>
+                <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. b DSGVO.
+            </p>
+
+            <h2 id="de-7">7. Optionales Auto-Backup</h2>
+            <p>
+                Wenn du in den Einstellungen die Funktion „Auto-Backup" aktivierst, wählst du
+                einen Speicher-Ort über das Android-Datei-System (z. B. Google Drive, lokales
+                Verzeichnis, OneDrive, Dropbox).
+            </p>
+            <ul>
+                <li>Receipt Box selbst speichert oder verarbeitet die Backup-Daten <strong>nicht</strong> auf fremden Servern.</li>
+                <li>Die Backup-ZIP wird in den von dir gewählten Ordner geschrieben — die Übertragung dorthin erfolgt durch den jeweiligen Cloud-Anbieter, nach dessen Bedingungen.</li>
+                <li>Du kannst Auto-Backup jederzeit in den Einstellungen deaktivieren.</li>
+            </ul>
+
+            <h2 id="de-8">8. Berechtigungen der App</h2>
+            <table>
+                <thead>
+                    <tr><th>Berechtigung</th><th>Zweck</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Internet</td><td>Werbung, Document-Scanner-Updates</td></tr>
+                    <tr><td>Netzwerkstatus</td><td>Verbindungs-Erkennung für Werbung</td></tr>
+                    <tr><td>Biometrie</td><td>Optionale App-Sperre via Fingerabdruck/Face Unlock</td></tr>
+                    <tr><td>Push-Benachrichtigungen</td><td>Wöchentliche Erinnerungen (nur wenn aktiviert)</td></tr>
+                    <tr><td>Kamera (über ML Kit)</td><td>Belege scannen</td></tr>
+                </tbody>
+            </table>
+
+            <h2 id="de-9">9. Deine Rechte als Betroffener</h2>
+            <p>Du hast jederzeit das Recht auf:</p>
+            <ul>
+                <li>Auskunft (Art. 15 DSGVO)</li>
+                <li>Berichtigung (Art. 16 DSGVO)</li>
+                <li>Löschung (Art. 17 DSGVO) — durch Deinstallation der App</li>
+                <li>Einschränkung der Verarbeitung (Art. 18 DSGVO)</li>
+                <li>Datenübertragbarkeit (Art. 20 DSGVO) — durch CSV/PDF-Export oder Backup-ZIP</li>
+                <li>Widerspruch (Art. 21 DSGVO)</li>
+                <li>Widerruf der Einwilligung (Art. 7 Abs. 3 DSGVO)</li>
+            </ul>
+            <p>
+                Sende deine Anfrage formlos an die unter Punkt 1 genannte E-Mail-Adresse.
+                Du hast außerdem das Recht, dich bei einer Datenschutz-Aufsichtsbehörde zu
+                beschweren (Art. 77 DSGVO).
+            </p>
+
+            <h2 id="de-10">10. Änderungen dieser Erklärung</h2>
+            <p>
+                Wir können diese Erklärung anpassen, wenn sich Funktionen, Drittanbieter
+                oder gesetzliche Vorgaben ändern. Die jeweils aktuelle Version findest du
+                in der App unter <em>„Einstellungen → Datenschutz"</em> sowie auf dieser
+                Seite.
+            </p>
+
+            <h2 id="de-11">11. Kontakt</h2>
+            <p>
+                Bei Fragen zum Datenschutz:
+                <a href="mailto:placeholder@example.com"><span class="placeholder">[KONTAKT-E-MAIL]</span></a>
+            </p>
+        </section>
+
+        <!-- ============================================================
+             ENGLISH
+             ============================================================ -->
+        <section class="lang-section" data-lang="en">
+            <h1>Privacy Policy</h1>
+            <p class="subtitle">Receipt Box · Effective: <span class="placeholder">[INSERT DATE]</span></p>
+
+            <div class="toc">
+                <h3>Contents</h3>
+                <ol>
+                    <li><a href="#en-1">Data Controller</a></li>
+                    <li><a href="#en-2">General Principles</a></li>
+                    <li><a href="#en-3">Data Processed Locally</a></li>
+                    <li><a href="#en-4">On-Device OCR</a></li>
+                    <li><a href="#en-5">Advertising &amp; Consent</a></li>
+                    <li><a href="#en-6">In-App Purchases</a></li>
+                    <li><a href="#en-7">Auto-Backup</a></li>
+                    <li><a href="#en-8">App Permissions</a></li>
+                    <li><a href="#en-9">Your Rights</a></li>
+                    <li><a href="#en-10">Changes</a></li>
+                    <li><a href="#en-11">Contact</a></li>
+                </ol>
+            </div>
+
+            <h2 id="en-1">1. Data Controller</h2>
+            <p>
+                <span class="placeholder">[FULL NAME]</span><br>
+                <span class="placeholder">[STREET]</span><br>
+                <span class="placeholder">[POSTAL CODE + CITY]</span><br>
+                <span class="placeholder">[COUNTRY]</span>
+            </p>
+            <p>
+                E-Mail: <a href="mailto:placeholder@example.com"><span class="placeholder">[CONTACT EMAIL]</span></a>
+            </p>
+
+            <h2 id="en-2">2. General Principles</h2>
+            <p>
+                This Privacy Policy informs you about how the Android app
+                <strong>"Receipt Box"</strong> (the "App") processes your personal data.
+                Receipt Box was built with a <strong>Privacy-by-Design</strong> approach:
+                most of your data never leaves your device.
+            </p>
+            <p>
+                We comply with the EU General Data Protection Regulation (GDPR) and
+                applicable local data-protection laws.
+            </p>
+
+            <h2 id="en-3">3. Data Processed Locally on Your Device</h2>
+            <p>
+                The following data is stored <strong>exclusively on your device</strong>:
+            </p>
+            <ul>
+                <li><strong>Receipt data:</strong> merchant, date, amount, VAT rate, category, notes, hospitality occasion, attendees</li>
+                <li><strong>Receipt images:</strong> photos and PDFs of your scanned receipts</li>
+                <li><strong>Bookkeeping data:</strong> ledgers (Personal, Business, Projects)</li>
+                <li><strong>Trip data:</strong> start, destination, kilometers, purpose, per-diem allowance</li>
+                <li><strong>Settings:</strong> country/tax profile, app-lock state, auto-backup folder, reminder settings, onboarding status</li>
+            </ul>
+            <p>
+                This data is <strong>not transmitted</strong> to us or third parties unless
+                you actively export, share, or set up a cloud-folder backup yourself.
+            </p>
+            <p>
+                <strong>Legal basis:</strong> Art. 6(1)(b) GDPR and Art. 6(1)(f) GDPR.
+            </p>
+            <p>
+                <strong>Storage period:</strong> As long as the App is installed or until
+                you delete data manually. Uninstalling deletes all local data permanently.
+            </p>
+
+            <h2 id="en-4">4. On-Device Text Recognition (OCR)</h2>
+            <p>
+                When scanning a receipt, optical character recognition runs through
+                <strong>Google ML Kit Text Recognition</strong> and <strong>Google ML Kit
+                Document Scanner</strong> <strong>fully offline</strong> on your device.
+                Receipt images do not leave your device.
+            </p>
+            <p>
+                More info:
+                <a href="https://developers.google.com/ml-kit/terms" target="_blank" rel="noopener">developers.google.com/ml-kit/terms</a>
+            </p>
+
+            <h2 id="en-5">5. Advertising and Consent</h2>
+            <p>
+                In the free version, Receipt Box is funded by ads served via
+                <strong>Google AdMob</strong> (provider: Google Ireland Limited, Gordon
+                House, Barrow Street, Dublin 4, Ireland).
+            </p>
+
+            <h3>5.1 What is transmitted?</h3>
+            <p>If you <strong>consent</strong> to personalized ads, Google AdMob receives:</p>
+            <ul>
+                <li>Advertising ID of the device</li>
+                <li>IP address (truncated)</li>
+                <li>Device and operating-system info</li>
+                <li>Approximate location (IP-based, not GPS)</li>
+                <li>Aggregated app-usage data</li>
+            </ul>
+            <p>
+                If you <strong>decline</strong>, <strong>non-personalized ads</strong> are shown.
+            </p>
+
+            <h3>5.2 GDPR Consent</h3>
+            <p>
+                On first launch, Receipt Box shows a Google User Messaging Platform consent
+                form. You can update or withdraw your consent at any time under
+                <em>"Settings → Manage ad consent"</em>.
+            </p>
+            <p><strong>Legal basis:</strong> Art. 6(1)(a) GDPR.</p>
+
+            <h3>5.3 Data Transfer to Third Countries</h3>
+            <p>
+                Google transfers data to the United States, based on the EU Standard
+                Contractual Clauses (Art. 46 GDPR) and the EU-US Data Privacy Framework.
+                More:
+                <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a>
+            </p>
+
+            <h2 id="en-6">6. In-App Purchases (Premium / Lifetime)</h2>
+            <p>
+                In-app purchases are handled by <strong>Google Play Billing</strong>.
+                Provider: Google Ireland Limited.
+            </p>
+            <ul>
+                <li>Payment processing is performed entirely by Google.</li>
+                <li>From Google we receive <strong>only purchase status</strong> — no payment data.</li>
+                <li>Active purchases are stored locally on your device. On device change they are restored via your Google account.</li>
+            </ul>
+            <p><strong>Legal basis:</strong> Art. 6(1)(b) GDPR.</p>
+
+            <h2 id="en-7">7. Optional Auto-Backup</h2>
+            <p>
+                If you enable "Auto-Backup" in Settings, you choose a storage location via
+                the Android file system (e.g., Google Drive, local folder, OneDrive,
+                Dropbox).
+            </p>
+            <ul>
+                <li>Receipt Box itself does <strong>not</strong> store or process backup data on any of our servers.</li>
+                <li>The backup ZIP is written to the folder you choose.</li>
+                <li>You can disable Auto-Backup at any time in Settings.</li>
+            </ul>
+
+            <h2 id="en-8">8. App Permissions</h2>
+            <table>
+                <thead>
+                    <tr><th>Permission</th><th>Purpose</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Internet</td><td>Display ads, update Document Scanner module</td></tr>
+                    <tr><td>Network state</td><td>Detect connectivity for ads</td></tr>
+                    <tr><td>Biometric</td><td>Optional app lock via fingerprint / face unlock</td></tr>
+                    <tr><td>Push notifications</td><td>Weekly reminders (only if enabled)</td></tr>
+                    <tr><td>Camera (via ML Kit)</td><td>Scan receipts</td></tr>
+                </tbody>
+            </table>
+
+            <h2 id="en-9">9. Your Rights</h2>
+            <p>You have the right at any time to:</p>
+            <ul>
+                <li>Access (Art. 15 GDPR)</li>
+                <li>Rectify inaccurate data (Art. 16 GDPR)</li>
+                <li>Delete your data (Art. 17 GDPR) — by uninstalling the app</li>
+                <li>Restrict processing (Art. 18 GDPR)</li>
+                <li>Data portability (Art. 20 GDPR) — via CSV/PDF export or backup ZIP</li>
+                <li>Object (Art. 21 GDPR)</li>
+                <li>Withdraw consent (Art. 7(3) GDPR)</li>
+            </ul>
+            <p>
+                Send any informal request to the email address listed under section 1.
+                You also have the right to lodge a complaint with a data-protection
+                authority (Art. 77 GDPR).
+            </p>
+
+            <h2 id="en-10">10. Changes to This Policy</h2>
+            <p>
+                We may update this policy when features, third parties or legal
+                requirements change. The current version is always available in-app
+                under <em>"Settings → Privacy"</em> and on this page.
+            </p>
+
+            <h2 id="en-11">11. Contact</h2>
+            <p>
+                For privacy-related questions:
+                <a href="mailto:placeholder@example.com"><span class="placeholder">[CONTACT EMAIL]</span></a>
+            </p>
+        </section>
+
+    </div>
+</main>
+
+<footer>
+    <div class="container">
+        © Receipt Box · <a href="#" id="back-to-top">↑</a>
+    </div>
+</footer>
+
+<script>
+    // Sprach-Toggle
+    const buttons = document.querySelectorAll('.lang-toggle button');
+    const sections = document.querySelectorAll('.lang-section');
+
+    function setLang(lang) {
+        buttons.forEach(b => {
+            const active = b.dataset.lang === lang;
+            b.classList.toggle('active', active);
+            b.setAttribute('aria-selected', active);
+        });
+        sections.forEach(s => {
+            s.classList.toggle('active', s.dataset.lang === lang);
+        });
+        document.documentElement.lang = lang;
+        try {
+            localStorage.setItem('receiptbox-privacy-lang', lang);
+        } catch (e) { /* private mode */ }
+    }
+
+    buttons.forEach(b => {
+        b.addEventListener('click', () => setLang(b.dataset.lang));
+    });
+
+    // Initial-Sprache: localStorage > Browser-Sprache > Default DE
+    const stored = (() => {
+        try { return localStorage.getItem('receiptbox-privacy-lang'); }
+        catch (e) { return null; }
+    })();
+    const browserLang = (navigator.language || 'de').slice(0, 2);
+    const initial = stored || (browserLang === 'en' ? 'en' : 'de');
+    setLang(initial);
+
+    // Back-to-Top
+    document.getElementById('back-to-top').addEventListener('click', e => {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+</script>
+
+</body>
+</html>
